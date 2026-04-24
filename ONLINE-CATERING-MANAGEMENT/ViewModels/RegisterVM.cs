@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
+
 namespace ONLINE_CATERING_MANAGEMENT.ViewModels
 {
     public class RegisterVM
