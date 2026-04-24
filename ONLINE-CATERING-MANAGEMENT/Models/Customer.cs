@@ -17,5 +17,8 @@
         public string City { get; set; }
         public string Province { get; set; }
         public string ZipCode { get; set; }
+
+        public bool IsEmailVerified { get; set; } = false; //to block fake reservations
+        public DateTime DateCreated { get; set; } = DateTime.Now; //track registrations
     }
 }

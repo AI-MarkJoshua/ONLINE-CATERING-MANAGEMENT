@@ -13,5 +13,6 @@ namespace ONLINE_CATERING_MANAGEMENT.Data
 
         // This represents the Customers table in PostgreSQL
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<UserAccount> UserAccounts { get; set; }
     }
 }
