@@ -2,7 +2,19 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="video-container">
+
+    <video autoplay muted loop playsinline class="background-video">
+        <source src="videos/samplevideo.mp4" type="video/mp4">
+    </video>
+
+    <div class="video-overlay">
+        <h1>Delicious Catering For Every Occasion</h1>
+        <p>Weddings • Birthdays • Corporate Events</p>
+
+        <a asp-controller="Home" asp-action="Menu" class="btn btn-warning btn-lg mt-3">
+            View Menu
+        </a>
+    </div>
+
 </div>
