@@ -1,5 +1,6 @@
 using ONLINE_CATERING_MANAGEMENT.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -10,6 +11,15 @@ builder.WebHost.UseUrls($"http://*:{port}");
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Account/Login";
+        options.AccessDeniedPath = "/Account/AccessDenied";
+        options.ExpireTimeSpan = TimeSpan.FromDays(7);
+    });
+builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
@@ -26,7 +36,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
+app.UseAuthentication(); // checks login cookie
+app.UseAuthorization();  // checks roles/permissions
 
 app.MapControllerRoute(
     name: "default",
