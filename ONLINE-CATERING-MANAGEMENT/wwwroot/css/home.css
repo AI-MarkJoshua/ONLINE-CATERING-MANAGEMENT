@@ -1,0 +1,31 @@
+﻿/* HERO IMAGE BACKGROUND */
+.hero-container {
+    background-image: url('/image/homepagebanner.png');
+    background-size: cover;
+    background-position: center;
+    height: 70vh;
+    width: 100%;
+    border: 8px solid white;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* TEXT ON TOP OF IMAGE */
+.hero-overlay {
+    text-align: center;
+    color: white;
+    background: rgba(0,0,0,0.45);
+    padding: 40px;
+    border-radius: 10px;
+}
+
+    .hero-overlay h1 {
+        font-size: 48px;
+        font-weight: bold;
+    }
+
+    .hero-overlay p {
+        font-size: 20px;
+    }
