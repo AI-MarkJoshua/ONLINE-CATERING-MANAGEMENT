@@ -14,16 +14,22 @@
 
 /* TEXT ON TOP OF IMAGE */
 .hero-overlay {
-    text-align: center;
+    text-align: left;
     color: white;
-    background: rgba(0,0,0,0.45);
     padding: 40px;
     border-radius: 10px;
+    position: absolute; /* allows positioning inside hero */
+    top: 80px; /* distance from top */
+    left: 40px; /* distance from left */
 }
 
-    .hero-overlay h1 {
-        font-size: 48px;
+    .hero-overlay h1, h2 {
+        font-size: 60px;
         font-weight: bold;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    .hero-overlay h2 {
+        color: #927c75;
     }
 
     .hero-overlay p {
