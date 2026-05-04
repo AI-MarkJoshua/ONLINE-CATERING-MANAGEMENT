@@ -59,3 +59,16 @@ body {
     .video-overlay p {
         font-size: 1.5rem;
     }
+
+/* Custom Login Button */
+.btn-login {
+    background-color: #927c75;
+    color: white !important;
+    border-radius: 6px;
+}
+
+    /* Hover effect */
+    .btn-login:hover {
+        background-color: #654436;
+        color: white !important;
+    }

@@ -17,7 +17,7 @@
             <div class="container-fluid">
 
                 <a class="navbar-brand fw-bold" asp-controller="Home" asp-action="Index">
-                    🍽️ Online Catering
+                    <img src="~/image/lolasecretlogo.png" alt="Online Catering Logo" style="height:60px;">
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample">
@@ -26,8 +26,8 @@
 
                 <div class="collapse navbar-collapse" id="navbarsExample">
 
-                    <!-- LEFT SIDE (Public Pages) -->
-                    <ul class="navbar-nav me-auto">
+                    <!-- CENTER MENU -->
+                    <ul class="navbar-nav mx-auto">
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
@@ -41,7 +41,7 @@
                         </li>
                     </ul>
 
-                    <!-- RIGHT SIDE (Login / Dashboard) -->
+                    <!-- RIGHT SIDE LOGIN -->
                     <ul class="navbar-nav">
 
                         @if (User.Identity.IsAuthenticated)
@@ -61,13 +61,9 @@
                         else
                         {
                             <li class="nav-item">
-                                <a class="nav-link" asp-controller="Account" asp-action="Login">Login</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link btn btn-warning text-dark px-3 ms-2"
-                                   asp-controller="Account" asp-action="Register">
-                                    Register
+                                <a class="nav-link btn btn-login px-3"
+                                   asp-controller="Account" asp-action="Login">
+                                    Login
                                 </a>
                             </li>
                         }
