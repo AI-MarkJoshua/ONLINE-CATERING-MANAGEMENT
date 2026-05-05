@@ -1,15 +1,15 @@
-﻿/* HERO IMAGE BACKGROUND */
+﻿/* FULLSCREEN HERO IMAGE */
 .hero-container {
-    background-image: url('/image/homepagebanner.png');
+    background-image: url('/image/upperbackground.png');
     background-size: cover;
     background-position: center;
-    height: 70vh;
+    background-repeat: no-repeat;
+    height: 100vh; /* full screen height */
     width: 100%;
-    border: 8px solid white;
-    border-radius: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative; /* needed for overlay */
 }
 
 /* TEXT ON TOP OF IMAGE */
@@ -19,7 +19,7 @@
     padding: 40px;
     border-radius: 10px;
     position: absolute; /* allows positioning inside hero */
-    top: 80px; /* distance from top */
+    top: 120px; /* distance from top */
     left: 40px; /* distance from left */
 }
 

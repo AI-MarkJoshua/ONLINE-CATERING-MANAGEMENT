@@ -11,14 +11,13 @@ html {
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
+body {
+    overflow-x: hidden;
+}
 
 html {
   position: relative;
   min-height: 100%;
-}
-
-body {
-  margin-bottom: 60px;
 }
 
 /* Custom Login Button */
@@ -36,4 +35,32 @@ body {
 
 .navbar-nav .nav-link {
     font-weight: bold;
+}
+
+/* TRANSPARENT NAVBAR */
+.custom-navbar {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    position: absolute; /* float on top of hero/video */
+    width: 100%;
+    z-index: 1000;
+}
+
+    /* NAVBAR TEXT COLOR */
+    .custom-navbar .nav-link,
+    .custom-navbar .navbar-brand {
+        color: white !important;
+    }
+
+        .custom-navbar .nav-link:hover {
+            color: #f1f1f1 !important;
+        }
+
+.navbar-toggler {
+    border-color: white;
+}
+
+.navbar-toggler-icon {
+    filter: invert(1);
 }
