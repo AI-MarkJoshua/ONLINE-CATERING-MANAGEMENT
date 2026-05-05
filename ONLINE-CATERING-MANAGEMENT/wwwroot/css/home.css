@@ -26,12 +26,21 @@
     .hero-overlay h1, h2 {
         font-size: 60px;
         font-weight: bold;
-        font-family: 'Times New Roman', Times, serif;
+    }
+    .hero-overlay h1 {
+        color:black;
     }
     .hero-overlay h2 {
         color: #927c75;
     }
+    .hero-overlay h4 {
+        color: #faa902;
+        font-weight:bold;
+    }
 
     .hero-overlay p {
-        font-size: 20px;
+        font-size: 17px;
+        color: black;
+        font-weight: 600;
+        margin: 0; /* removes default gap */
     }
