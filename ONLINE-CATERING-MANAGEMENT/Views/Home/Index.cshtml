@@ -4,18 +4,32 @@
 @section Styles {
     <link rel="stylesheet" href="~/css/home.css" />
 }
+
+<!-- HERO SECTION -->
 <div class="hero-container">
 
-    <div class="hero-overlay">
-        <h4>Catering</h4>
-        <h1>Good food</h1>
-        <h2>Great memories</h2>
-        <p>We handle the food, preparation, and presentation</p>
-        <p>so you can relax and enjoy your special occasion.</p>
+    <div class="hero-content container">
+        <div class="row align-items-center">
 
-        <a asp-controller="Home" asp-action="Menu" class="btn btn-warning btn-lg mt-3">
-            View Menu
-        </a>
+            <!-- LEFT SIDE TEXT -->
+            <div class="col-lg-6 hero-text">
+                <h4>Catering</h4>
+                <h1>Good food</h1>
+                <h2>Great memories</h2>
+                <p>We handle the food, preparation, and presentation</p>
+                <p>so you can relax and enjoy your special occasion.</p>
+
+                <a asp-controller="Home" asp-action="Menu" class="btn btn-warning btn-lg mt-3">
+                    Get Started
+                </a>
+            </div>
+
+            <!-- RIGHT SIDE IMAGE -->
+            <div class="col-lg-6 text-center">
+                <img src="~/image/food2.png" class="hero-food-img" alt="Food">
+            </div>
+
+        </div>
     </div>
 
 </div>

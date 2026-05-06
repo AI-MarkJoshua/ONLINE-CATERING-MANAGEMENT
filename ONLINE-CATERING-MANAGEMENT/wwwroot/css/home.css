@@ -1,46 +1,48 @@
-﻿/* FULLSCREEN HERO IMAGE */
+﻿/* FULLSCREEN HERO IMAGE BACKGROUND */
 .hero-container {
     background-image: url('/image/upperbackground.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 100vh; /* full screen height */
+    height: 100vh;
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    position: relative; /* needed for overlay */
 }
 
-/* TEXT ON TOP OF IMAGE */
-.hero-overlay {
-    text-align: left;
-    color: white;
-    padding: 40px;
-    border-radius: 10px;
-    position: absolute; /* allows positioning inside hero */
-    top: 120px; /* distance from top */
-    left: 40px; /* distance from left */
+/* container inside hero */
+.hero-content {
+    margin-top: 60px; /* space under navbar */
 }
 
-    .hero-overlay h1, h2 {
-        font-size: 60px;
-        font-weight: bold;
-    }
-    .hero-overlay h1 {
-        color:black;
-    }
-    .hero-overlay h2 {
-        color: #927c75;
-    }
-    .hero-overlay h4 {
-        color: #faa902;
-        font-weight:bold;
-    }
+/* LEFT TEXT SIDE */
+.hero-text h1, .hero-text h2 {
+    font-size: 60px;
+    font-weight: bold;
+}
 
-    .hero-overlay p {
-        font-size: 17px;
-        color: black;
-        font-weight: 600;
-        margin: 0; /* removes default gap */
-    }
+.hero-text h1 {
+    color: black;
+}
+
+.hero-text h2 {
+    color: #927c75;
+}
+
+.hero-text h4 {
+    color: #faa902;
+    font-weight: bold;
+}
+
+.hero-text p {
+    font-size: 17px;
+    color: black;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* RIGHT FOOD IMAGE */
+.hero-food-img {
+    width: 95%;
+    max-width: 650px;
+}
