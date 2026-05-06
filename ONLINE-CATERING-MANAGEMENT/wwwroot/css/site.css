@@ -50,11 +50,11 @@ html {
     /* NAVBAR TEXT COLOR */
     .custom-navbar .nav-link,
     .custom-navbar .navbar-brand {
-        color: white !important;
+        color: black !important;
     }
 
         .custom-navbar .nav-link:hover {
-            color: #f1f1f1 !important;
+            color: white !important;
         }
 
 .navbar-toggler {

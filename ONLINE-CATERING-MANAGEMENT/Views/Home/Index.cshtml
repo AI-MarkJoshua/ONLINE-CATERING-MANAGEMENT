@@ -25,11 +25,120 @@
             </div>
 
             <!-- RIGHT SIDE IMAGE -->
-            <div class="col-lg-6 text-center">
-                <img src="~/image/food2.png" class="hero-food-img" alt="Food">
+            <div class="col-lg-6 hero-images">
+
+                <!-- BIG IMAGE -->
+                <img src="/image/food2.png" class="food-img main" id="img1">
+
+                <!-- SMALL STACK -->
+                <img src="/image/food1.png" class="food-img small s1" onclick="swapImage(this)">
+                <img src="/image/food3.png" class="food-img small s2" onclick="swapImage(this)">
+                <img src="/image/food4.png" class="food-img small s3" onclick="swapImage(this)">
+
             </div>
 
         </div>
     </div>
 
 </div>
+<script>
+    let autoRotateInterval;
+    let isAutoRotating = true;
+    let currentImageIndex = 0;
+
+    /* MAIN SWAP FUNCTION */
+    function swapImage(clickedImg) {
+        let mainImg = document.querySelector(".food-img.main");
+        let tempSrc = mainImg.src;
+
+        // move clicked image forward before swap
+        clickedImg.style.transform = "scale(1.2) translateX(-120px) rotate(0deg)";
+        clickedImg.style.zIndex = "6";
+
+        mainImg.style.transform = "scale(0.75)";
+
+        setTimeout(() => {
+            mainImg.src = clickedImg.src;
+            clickedImg.src = tempSrc;
+
+            clickedImg.style.transform = "";
+            clickedImg.style.zIndex = "2";
+
+            mainImg.style.transform = "scale(1.08)";
+            setTimeout(()=> mainImg.style.transform = "scale(1)", 200);
+        },350);
+    }
+
+    /* ROTATE POSITIONS OF SMALL IMAGES */
+    function rotateSmallImages() {
+        const s1 = document.querySelector('.s1');
+        const s2 = document.querySelector('.s2');
+        const s3 = document.querySelector('.s3');
+        const mainImg = document.querySelector(".food-img.main");
+        
+        // Store current sources
+        const s1Src = s1.src;
+        const s2Src = s2.src;
+        const s3Src = s3.src;
+        
+        // Rotate positions: s3 -> s1, s1 -> s2, s2 -> s3
+        s1.src = s3Src;
+        s2.src = s1Src;
+        s3.src = s2Src;
+        
+        // Update main image with what was previously s3
+        mainImg.src = s3Src;
+        
+        // Add animation effect
+        mainImg.style.transform = "scale(0.95)";
+        setTimeout(() => {
+            mainImg.style.transform = "scale(1.08)";
+            setTimeout(() => mainImg.style.transform = "scale(1)", 200);
+        }, 200);
+    }
+
+    /* START AUTO ROTATION */
+    function startAutoRotation() {
+        autoRotateInterval = setInterval(rotateSmallImages, 4000);
+    }
+
+    /* STOP AUTO ROTATION */
+    function stopAutoRotation() {
+        if (autoRotateInterval) {
+            clearInterval(autoRotateInterval);
+            isAutoRotating = false;
+        }
+    }
+
+    /* RESTART AUTO ROTATION AFTER INACTIVITY */
+    function restartAutoRotation() {
+        setTimeout(() => {
+            if (!isAutoRotating) {
+                isAutoRotating = true;
+                startAutoRotation();
+            }
+        }, 8000); // Restart after 8 seconds
+    }
+
+    /* INITIALIZE WHEN PAGE LOADS */
+    document.addEventListener('DOMContentLoaded', function() {
+        startAutoRotation();
+        
+        // Stop rotation on user interaction
+        document.querySelectorAll('.food-img').forEach(img => {
+            img.addEventListener('click', function() {
+                stopAutoRotation();
+                restartAutoRotation();
+            });
+            img.addEventListener('mouseenter', stopAutoRotation);
+        });
+
+        // Resume rotation when mouse leaves the image area
+        const heroArea = document.querySelector(".hero-images");
+        heroArea.addEventListener("mouseleave", function() {
+            if (!isAutoRotating) {
+                restartAutoRotation();
+            }
+        });
+    });
+</script>
