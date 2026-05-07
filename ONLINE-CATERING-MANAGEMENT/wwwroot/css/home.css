@@ -4,7 +4,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     display: flex;
     align-items: center;
@@ -12,67 +12,51 @@
 
 /* container inside hero */
 .hero-content {
-    margin-top: 60px; /* space under navbar */
+    margin-top: 60px;
+    width: 100%;
 }
 
 .hero-text h1 {
-    font-size: 80px;
+    font-size: clamp(36px, 6vw, 80px);
     font-weight: 800;
     line-height: 1.05;
-}
-
-.hero-text h2 {
-    font-size: 75px;
-    font-weight: 800;
-    line-height: 1.05;
-}
-
-.hero-text h1 {
     color: black;
 }
 
 .hero-text h2 {
+    font-size: clamp(32px, 5.5vw, 75px);
+    font-weight: 800;
+    line-height: 1.05;
     color: #927c75;
 }
 
 .hero-text h4 {
     color: #faa902;
     font-weight: bold;
-}
-
-.hero-text h4 {
-    color: #faa902;
-    font-weight: bold;
-    font-size: 26px;
+    font-size: clamp(18px, 2vw, 26px);
     margin-bottom: 10px;
 }
 
 .hero-text p {
-    font-size: 20px;
+    font-size: clamp(14px, 1.4vw, 20px);
     color: black;
     font-weight: 600;
     margin: 0;
 }
 
-/* RIGHT FOOD IMAGE */
-.hero-food-img {
-    width: 185%;
-    max-width: 910px;
-}
-
-
-/* MOVE TEXT MORE TO THE LEFT */
+/* REMOVE FIXED TRANSLATE — let Bootstrap columns handle alignment */
 .hero-text {
-    transform: translateX(-230px);
+    transform: none;
+    padding-left: clamp(10px, 3vw, 40px);
+    position: relative;
+    left: clamp(-80px, -6vw, -20px); /* 👈 moves visually, doesn't affect grid */
 }
 
 /* RIGHT SIDE IMAGE AREA */
 .hero-images {
     position: relative;
-    height: 600px;
+    height: clamp(350px, 50vw, 600px);
 }
-
-
 
 /* ALL FOOD IMAGES */
 .food-img {
@@ -81,10 +65,11 @@
     cursor: pointer;
 }
 
+    /* MAIN BIG IMAGE — scales with viewport */
     .food-img.main {
-        width: 815px;
-        right: -122px;
-        top: 85px;
+        width: clamp(400px, 55vw, 815px);
+        right: clamp(-80px, -8vw, -122px);
+        top: clamp(40px, 8vw, 85px);
         z-index: 5;
     }
 
@@ -95,29 +80,29 @@
         filter: drop-shadow(0 10px 18px rgba(0,0,0,0.15));
     }
 
-/* TOP IMAGE (furthest from big) */
+/* TOP IMAGE */
 .s1 {
-    top: -20px;
-    right: 80px;
+    top: clamp(-10px, -1vw, -20px);
+    right: clamp(30px, 6vw, 80px);
     transform: rotate(-15deg) scale(0.95);
-    width: 180px;
+    width: clamp(90px, 13vw, 180px);
 }
 
 /* MIDDLE IMAGE */
 .s2 {
-    top: 120px;
-    right: -60px;
+    top: clamp(60px, 9vw, 120px);
+    right: clamp(-30px, -4vw, -60px);
     transform: rotate(-5deg) scale(0.92);
-    width: 160px;
+    width: clamp(80px, 11vw, 160px);
     z-index: 4;
 }
 
-/* BOTTOM IMAGE (closest to big) */
+/* BOTTOM IMAGE */
 .s3 {
-    top: 280px;
-    right: -120px;
+    top: clamp(140px, 19vw, 280px);
+    right: clamp(-60px, -8vw, -120px);
     transform: rotate(8deg) scale(1);
-    width: 140px;
+    width: clamp(70px, 10vw, 140px);
 }
 
 /* hover effect */
@@ -127,35 +112,98 @@
 }
 
 /* SMOOTH MOVEMENT STATES */
-
 .move-to-main {
-    width: 815px !important;
-    right: -122px !important;
-    top: 85px !important;
+    width: clamp(400px, 55vw, 815px) !important;
+    right: clamp(-80px, -8vw, -122px) !important;
+    top: clamp(40px, 8vw, 85px) !important;
     transform: rotate(0deg) scale(1) !important;
     z-index: 5 !important;
 }
 
 .move-to-s1 {
-    top: -20px !important;
-    right: 80px !important;
-    width: 180px !important;
+    top: clamp(-10px, -1vw, -20px) !important;
+    right: clamp(30px, 6vw, 80px) !important;
+    width: clamp(90px, 13vw, 180px) !important;
     transform: rotate(-15deg) scale(0.95) !important;
     z-index: 3 !important;
 }
 
 .move-to-s2 {
-    top: 120px !important;
-    right: -60px !important;
-    width: 160px !important;
+    top: clamp(60px, 9vw, 120px) !important;
+    right: clamp(-30px, -4vw, -60px) !important;
+    width: clamp(80px, 11vw, 160px) !important;
     transform: rotate(-5deg) scale(0.92) !important;
     z-index: 4 !important;
 }
 
 .move-to-s3 {
-    top: 280px !important;
-    right: -120px !important;
-    width: 140px !important;
+    top: clamp(140px, 19vw, 280px) !important;
+    right: clamp(-60px, -8vw, -120px) !important;
+    width: clamp(70px, 10vw, 140px) !important;
     transform: rotate(8deg) scale(1) !important;
     z-index: 2 !important;
+}
+
+/* ── TABLET (≤ 991px) ── */
+@media (max-width: 991px) {
+    .hero-content {
+        margin-top: 40px;
+        text-align: center;
+    }
+
+    .hero-text {
+        padding-left: 0;
+        margin-bottom: 30px;
+    }
+
+    .hero-images {
+        height: clamp(280px, 60vw, 450px);
+        margin: 0 auto;
+    }
+}
+
+/* ── MOBILE (≤ 576px) ── */
+@media (max-width: 576px) {
+    .hero-container {
+        min-height: auto;
+        padding: 80px 0 40px;
+    }
+
+    .hero-images {
+        height: 320px;
+    }
+
+    .food-img.main,
+    .move-to-main {
+        width: 260px !important;
+        right: 50% !important;
+        transform: translateX(50%) !important;
+        top: 20px !important;
+    }
+
+    .s1, .move-to-s1 {
+        width: 70px !important;
+        right: 10px !important;
+        top: 0 !important;
+    }
+
+    .s2, .move-to-s2 {
+        width: 65px !important;
+        right: -10px !important;
+        top: 80px !important;
+    }
+
+    .s3, .move-to-s3 {
+        width: 60px !important;
+        right: -15px !important;
+        top: 160px !important;
+    }
+}
+
+@media (max-width: 991px) {
+    .hero-text {
+        position: static; /* 👈 back to normal flow on small screens */
+        padding-left: 0;
+        margin-bottom: 30px;
+    }
 }
