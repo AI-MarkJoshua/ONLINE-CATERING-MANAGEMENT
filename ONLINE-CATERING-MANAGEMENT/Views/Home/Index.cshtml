@@ -15,7 +15,7 @@
             <div class="col-lg-6 hero-text">
                 <h4>Catering</h4>
                 <h1>Good Food</h1>
-                <h2>Great <span>Memories</span></h2>
+                <h2><span class="black-text">Great</span> <span class="gold-text">Memories</span></h2>
                 <p>We handle the food, preparation, and presentation</p>
                 <p>so you can relax and enjoy your special occasion.</p>
 
@@ -39,8 +39,41 @@
 
         </div>
     </div>
-
 </div>
+<!-- ABOUT US SECTION -->
+<section class="about-section py-5">
+
+    <div class="container">
+        <div class="row align-items-center">
+
+            <!-- LEFT IMAGE (optional) -->
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <img src="/image/about.jpg" class="img-fluid rounded shadow" alt="About Us">
+            </div>
+
+            <!-- RIGHT TEXT -->
+            <div class="col-lg-6">
+                <h2>About Us</h2>
+                <p>
+                    We are a dedicated catering service focused on bringing unforgettable food experiences
+                    to your special occasions. From intimate gatherings to grand celebrations,
+                    we handle everything from preparation to presentation.
+                </p>
+
+                <p>
+                    Our goal is simple — to make your event stress-free and memorable with delicious food
+                    and professional service.
+                </p>
+
+                <a asp-controller="Home" asp-action="About" class="btn btn-dark mt-3">
+                    Learn More
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+</section>
 <script>
     let autoRotateInterval;
     let isAutoRotating = true;

@@ -27,8 +27,16 @@
     font-size: clamp(32px, 5.5vw, 75px);
     font-weight: 800;
     line-height: 1.05;
-    color: #927c75;
+    white-space: nowrap; /* 👈 forces it to stay on one line */
 }
+
+    .hero-text h2 .black-text {
+        color: black;
+    }
+
+    .hero-text h2 .gold-text {
+        color: #faa902;
+    }
 
 .hero-text h4 {
     color: #faa902;
