@@ -1,0 +1,45 @@
+﻿.about-section {
+    background-color: #f9f9f9;
+    padding: 80px 0;
+}
+
+    .about-section h2 {
+        font-weight: 700;
+        margin-bottom: 15px;
+    }
+    .about-section h2 .black-text{
+       color:black;
+    }
+        .about-section h2 .gold-text {
+            color: #faa902;
+        }
+
+
+    .about-section p {
+        color: black;
+        line-height: 1.7;
+        font-size: 16px;
+        font-weight:490;
+    }
+
+
+
+    .about-section img {
+        width: 100%;
+        max-width: 485px;
+        height: auto;
+        border-radius: 12px;
+        object-fit: cover;
+    }
+
+.btn-learnmore {
+    background-color: #faa902;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    color: #000;
+    padding: 8px 18px; /* smaller than default */
+    font-size: 14px; /* control text size */
+    display: inline-block;
+    transition: 0.3s ease;
+}
