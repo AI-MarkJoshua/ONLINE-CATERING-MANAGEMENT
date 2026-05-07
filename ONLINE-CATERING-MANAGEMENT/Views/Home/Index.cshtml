@@ -14,8 +14,8 @@
             <!-- LEFT SIDE TEXT -->
             <div class="col-lg-6 hero-text">
                 <h4>Catering</h4>
-                <h1>Good food</h1>
-                <h2>Great memories</h2>
+                <h1>Good Food</h1>
+                <h2>Great <span>Memories</span></h2>
                 <p>We handle the food, preparation, and presentation</p>
                 <p>so you can relax and enjoy your special occasion.</p>
 
@@ -46,55 +46,75 @@
     let isAutoRotating = true;
     let currentImageIndex = 0;
 
-    /* MAIN SWAP FUNCTION */
+       /* CLICK IMAGE TO BRING IT TO FRONT */
     function swapImage(clickedImg) {
-        let mainImg = document.querySelector(".food-img.main");
-        let tempSrc = mainImg.src;
 
-        // move clicked image forward before swap
-        clickedImg.style.transform = "scale(1.2) translateX(-120px) rotate(0deg)";
-        clickedImg.style.zIndex = "6";
+        const main = document.querySelector(".food-img.main");
 
-        mainImg.style.transform = "scale(0.75)";
+        // Prevent clicking the main image
+        if (clickedImg.classList.contains("main")) return;
 
-        setTimeout(() => {
-            mainImg.src = clickedImg.src;
-            clickedImg.src = tempSrc;
+        // If user clicked s1
+        if (clickedImg.classList.contains("s1")) {
 
-            clickedImg.style.transform = "";
-            clickedImg.style.zIndex = "2";
+            rotateSmallImages();
 
-            mainImg.style.transform = "scale(1.08)";
-            setTimeout(()=> mainImg.style.transform = "scale(1)", 200);
-        },350);
+        }
+
+        // If user clicked s2
+        else if (clickedImg.classList.contains("s2")) {
+
+            rotateSmallImages();
+
+            setTimeout(() => {
+                rotateSmallImages();
+            }, 850);
+        }
+
+        // If user clicked s3
+        else if (clickedImg.classList.contains("s3")) {
+
+            rotateSmallImages();
+
+            setTimeout(() => {
+                rotateSmallImages();
+            }, 850);
+
+            setTimeout(() => {
+                rotateSmallImages();
+            }, 1700);
+        }
     }
 
-    /* ROTATE POSITIONS OF SMALL IMAGES */
+         /* SMOOTH CIRCULAR ROTATION */
     function rotateSmallImages() {
-        const s1 = document.querySelector('.s1');
-        const s2 = document.querySelector('.s2');
-        const s3 = document.querySelector('.s3');
-        const mainImg = document.querySelector(".food-img.main");
-        
-        // Store current sources
-        const s1Src = s1.src;
-        const s2Src = s2.src;
-        const s3Src = s3.src;
-        
-        // Rotate positions: s3 -> s1, s1 -> s2, s2 -> s3
-        s1.src = s3Src;
-        s2.src = s1Src;
-        s3.src = s2Src;
-        
-        // Update main image with what was previously s3
-        mainImg.src = s3Src;
-        
-        // Add animation effect
-        mainImg.style.transform = "scale(0.95)";
+
+        const main = document.querySelector(".food-img.main");
+        const s1 = document.querySelector(".food-img.s1");
+        const s2 = document.querySelector(".food-img.s2");
+        const s3 = document.querySelector(".food-img.s3");
+
+        // Animate movement
+        main.classList.add("move-to-s3");
+        s1.classList.add("move-to-main");
+        s2.classList.add("move-to-s1");
+        s3.classList.add("move-to-s2");
+
         setTimeout(() => {
-            mainImg.style.transform = "scale(1.08)";
-            setTimeout(() => mainImg.style.transform = "scale(1)", 200);
-        }, 200);
+
+            // REMOVE OLD POSITION CLASSES
+            main.classList.remove("main", "move-to-s3");
+            s1.classList.remove("s1", "move-to-main");
+            s2.classList.remove("s2", "move-to-s1");
+            s3.classList.remove("s3", "move-to-s2");
+
+            // ADD NEW POSITION CLASSES
+            main.classList.add("s3");
+            s1.classList.add("main");
+            s2.classList.add("s1");
+            s3.classList.add("s2");
+
+        }, 800);
     }
 
     /* START AUTO ROTATION */
